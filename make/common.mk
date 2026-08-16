@@ -1,11 +1,13 @@
 .ONESHELL:
 SHELL := /bin/bash
 .SHELLFLAGS := -eu -o pipefail -c
-MAKEFLAGS := --warn-undefined-variables
+MAKEFLAGS += --warn-undefined-variables
 # =======================================
 ENV ?= dev
 INFRA_DIR := infra
 INFRA_ENV_DIR := $(INFRA_DIR)/envs/$(ENV)
+BASE_DIR := $(CURDIR)
+TFLINT_CONFIG_FILE := $(BASE_DIR)/.tflint.hcl
 # =======================================
 INFO_COLOR := \033[36;1m
 ERROR_COLOR := \033[31;1m

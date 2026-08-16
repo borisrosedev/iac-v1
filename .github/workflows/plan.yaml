@@ -4,6 +4,10 @@ on:
     push:
         branches:
             - main
+
+env:
+    TFLINT_VERSION: '0.64.0'
+    TF_VERSION: '1.15.6'
 concurrency:
     group: check-plan-${{ github.ref }}
     cancel-in-progress: true
@@ -21,9 +25,24 @@ jobs:
                 fetch-depth: 1
                 fetch-tags: false
                 show-progress: true
-            - name: set up terraform
 
-            - name: set up tfling
+            - name: set up terraform
+              uses: hashicorp/setup-terraform@v4
+              with:
+                terraform_version: "${{ env.TF_VERSION }}"
+
+            - name: check terraform code's format
+              run: |
+                tf.fmt.check
+
+            - name: set up tflint
+              uses: terraform-linters/setup-tflint@v6
+              with:
+                tflint_version_file: "${{ env.TFLINT_VERSION }}"
+
+            - name: check the terraform code's linting
+              run: |
+                make tflint.check
 
             - name: open an AZ session
               uses: azure/login@v3

@@ -17,3 +17,5 @@ dateFormat: d/M/y
     - [x] Créer le Makefile
     - [x] Commencer l'architecture mk
     - [x] Créer init.yml
+16/08/2026 8pm - 9pm:
+    - [x] Mettre des hooks

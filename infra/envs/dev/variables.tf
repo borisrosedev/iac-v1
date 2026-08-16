@@ -1,7 +1,3 @@
-variable "afic_app_id" {
-  type = string
-}
-
 variable "afic_dp_name" {
   type = string
 }
@@ -18,7 +14,7 @@ variable "afic_issuer" {
 variable "afic_subject" {
   type = string
   validation {
-    condition     = can(regex("^repo:"), var.afic_subject)
+    condition     = can(regex("^repo:", var.afic_subject))
     error_message = "Afic Subject must start with repo:"
   }
 }

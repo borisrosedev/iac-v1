@@ -24,3 +24,19 @@ repos:
     # Use this hook to let pre-commit build checkmake in its sandbox
     #-   id: checkmake
     - id: checkmake-system
+- repo: https://github.com/AleksaC/terraform-py
+  rev: v1.15.8
+  hooks:
+    - id: tf-fmt
+    - id: tf-validate
+
+
+
+- repo: https://github.com/igorshubovych/markdownlint-cli
+  rev: v0.49.1
+  hooks:
+    - id: markdownlint
+      name: Markdownlint
+
+
+minimum_pre_commit_version: !!str 4.2
