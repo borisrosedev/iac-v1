@@ -3,7 +3,7 @@ run-name: "${{ github.actor }} is running Check Image ... "
 on:
     push:
         branches:
-            - main
+            - dev
 permissions:
     contents: read # allows repo code's reading
 concurrency:

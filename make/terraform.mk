@@ -1,8 +1,8 @@
 .PHONY: tf.fmt tflint.check tflint.fix tf.validate tf.fmt.check \
-tf.init
+tf.init tf.plan trivy.plan.check tf.apply
 
 tf.init:
-	@terraform -chdir=$(INFRA_ENV_DIR) -input=false -lock=true -upgrade
+	@terraform -chdir=$(INFRA_ENV_DIR) init -input=false -lock=true -upgrade
 tf.fmt: ## effectively formats the terraform code
 	@terraform -chdir=$(INFRA_DIR) fmt -recursive -diff
 tf.fmt.check:
@@ -13,3 +13,11 @@ tflint.fix:
 	@tflint --chdir=$(INFRA_DIR) --config=$(TFLINT_CONFIG_FILE) --recursive --fix
 tf.validate:
 	@terraform -chdir=$(INFRA_ENV_DIR) validate
+tf.plan:
+	@terraform -chdir=$(INFRA_ENV_DIR) plan --out tfplan -var-file=$(TF_VARS_FILE)
+trivy.plan.check:
+	@cd $(INFRA_ENV_DIR) && trivy config --severity CRITICAL,HIGH --exit-code 1 tfplan
+tf.apply:
+	@terraform -chdir=$(INFRA_ENV_DIR) apply tfplan
+tf.out:
+	@terraform -chdir=$(INFRA_ENV_DIR) output

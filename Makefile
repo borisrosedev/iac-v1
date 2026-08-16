@@ -3,3 +3,4 @@ include ./make/pre.mk
 include ./make/ansible.mk
 include ./make/terraform.mk
 include ./make/git.mk
+include ./make/az.mk
