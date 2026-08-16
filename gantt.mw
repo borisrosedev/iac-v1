@@ -1,0 +1,19 @@
+---
+title: iac-v1
+#GithubActions: #75d336
+#Azure: #53b4ff
+#Ansible: #d978ec
+#Terraform: #ffee71
+timezone: Europe/Paris
+dateFormat: d/M/y
+---
+
+# All Projects
+
+## GithubActions #GithubActions
+
+16/08/2026 2pm - 5pm:
+    - [x] Commencer les GA
+    - [x] Créer le Makefile
+    - [x] Commencer l'architecture mk
+    - [x] Créer init.yml

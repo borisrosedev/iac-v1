@@ -1,0 +1,22 @@
+name: Linting
+run-name: "${{ github.actor }} is running Linting ... "
+on:
+    push:
+        branches:
+            - main
+permissions:
+    contents: read # allows repo code's reading
+concurrency:
+    group: linting-${{ github.ref }}
+    cancel-in-progress: true
+jobs:
+    linting:
+        runs-on: ubuntu-24.04
+        steps:
+            - name: checkout
+              uses: actions/checkout@v7
+              with:
+                repository: "${{ github.repository }}"
+                fetch-depth: 1
+                fetch-tags: false
+                show-progress: true

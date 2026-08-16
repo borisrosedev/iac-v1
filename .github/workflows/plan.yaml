@@ -1,0 +1,32 @@
+name: Check Plan
+run-name: "${{ github.actor }} is running Check Plan ... "
+on:
+    push:
+        branches:
+            - main
+concurrency:
+    group: check-plan-${{ github.ref }}
+    cancel-in-progress: true
+permissions:
+    id-token: write # OIDC token demand is allowed thanks to this / it gives no WRITE's permissions whatsoever
+    contents: read # allows repo code's reading
+jobs:
+    check_plan: ## each job turns in parallel ( no sharing files, variables ...)
+        runs-on: ubuntu-24.04
+        steps:
+            - name: checkout
+              uses: actions/checkout@v7
+              with:
+                repository: "${{ github.repository }}"
+                fetch-depth: 1
+                fetch-tags: false
+                show-progress: true
+            - name: set up terraform
+
+            - name: set up tfling
+
+            - name: open an AZ session
+              uses: azure/login@v3
+              with:
+                    client-id: ${{ secrets.AZURE_CLIENT_ID }}
+                    tenant-id: ${{ secrets.AZURE_TENANT_ID }}

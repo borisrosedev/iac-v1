@@ -1,0 +1,7 @@
+**/*.env
+**/*.tfvars
+*tfvars*
+*tfplan
+*tfstate
+.terraform
+**/*.vscode

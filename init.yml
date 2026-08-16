@@ -1,0 +1,14 @@
+---
+- name: boilerplate
+  hosts: localhost
+  tasks:
+    - name: make the boilerplate
+      ansible.builtin.file:
+        state: directory
+        path: "{{ playbook_dir }}/{{ item }}"
+        mode: 0755
+      loop:
+        - infra/envs/dev
+        - infra/modules/compute
+        - infra/modules/auth
+        - .github/workflows

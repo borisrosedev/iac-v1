@@ -1,0 +1,16 @@
+name: Check Image
+run-name: "${{ github.actor }} is running Check Image ... "
+on:
+    push:
+        branches:
+            - main
+permissions:
+    contents: read # allows repo code's reading
+concurrency:
+    group: check-image-${{ github.ref }}
+    cancel-in-progress: true
+env:
+    IMAGE_REF: docker.io/boralexdev/shop:${{ github.sha }}
+jobs:
+    check_image: ## every job turns in parallel
+        runs-on: ubuntu-24.04

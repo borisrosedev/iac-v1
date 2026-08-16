@@ -1,0 +1,26 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+    -   id: check-yaml
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+-   repo: local
+    hooks:
+    -   id: readme-md
+        name: README must be md
+        entry: README filenames must end in .md
+        language: fail
+        # negative lookahead
+        files: '(^|/)README(?!\.md$)[^/]*$'
+- repo: https://github.com/gitleaks/gitleaks
+  rev: v8.24.2
+  hooks:
+    - id: gitleaks
+- repo: https://github.com/checkmake/checkmake.git
+    # Or another commit hash or version
+  rev: 0.2.2
+  hooks:
+    # Use this hook to let pre-commit build checkmake in its sandbox
+    #-   id: checkmake
+    - id: checkmake-system
