@@ -2,6 +2,6 @@
 **/*.tfvars
 *tfvars*
 *tfplan
-*tfstate
+*tfstate*
 .terraform
 **/*.vscode

@@ -29,3 +29,11 @@ output "afic_issuer" {
 output "afic_subject" {
   value = module.afic_1.afic_subject
 }
+
+output "service_principal_object_id" {
+  value = module.service_principal_1.sp_object_id
+}
+
+output "role_assignment_id" {
+  value = module.role_assignment_1.role_assignment_id
+}
