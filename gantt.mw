@@ -19,3 +19,4 @@ dateFormat: d/M/y
     - [x] Créer init.yml
 16/08/2026 8pm - 9pm:
     - [x] Mettre des hooks
+    - [x] Gérer le problème du .mardownlintrc

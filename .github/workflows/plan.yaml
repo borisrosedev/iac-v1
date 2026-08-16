@@ -33,7 +33,7 @@ jobs:
 
             - name: check terraform code's format
               run: |
-                tf.fmt.check
+                make tf.fmt.check
 
             - name: set up tflint
               uses: terraform-linters/setup-tflint@v6
