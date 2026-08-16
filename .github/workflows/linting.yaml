@@ -5,7 +5,7 @@ on:
         branches:
             - main
 env:
-    TFLINT_VERSION: 'v0.64.0'
+    TFLINT_VERSION: '0.64.0'
     TF_VERSION: '1.15.6'
 permissions:
     contents: read # allows repo code's reading
@@ -36,7 +36,7 @@ jobs:
             - name: set up tflint
               uses: terraform-linters/setup-tflint@v6
               with:
-                tflint_version_file: "${{ env.TFLINT_VERSION }}"
+                tflint_version: "${{ env.TFLINT_VERSION }}"
 
             - name: check the terraform code's linting
               run: |
