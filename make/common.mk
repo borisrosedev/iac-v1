@@ -7,6 +7,7 @@ ENV ?= dev
 INFRA_DIR := infra
 INFRA_ENV_DIR := $(INFRA_DIR)/envs/$(ENV)
 BASE_DIR := $(CURDIR)
+GIT_SHA := $(shell git rev-parse --short HEAD)
 TFLINT_CONFIG_FILE := $(BASE_DIR)/.tflint.hcl
 TF_VARS_FILE := $(ENV).tfvars
 # =======================================

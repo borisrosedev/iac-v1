@@ -1,4 +1,4 @@
-.PHONY: g.head g.f.refs g.remote
+.PHONY: g.head g.f.refs g.remote g.info
 g.f.refs:
 	@find .git/refs
 g.head:
@@ -7,3 +7,6 @@ g.remote:
 	@cat .git/refs/remotes/origin/main
 g.log:
 	@git log --pretty=oneline  main
+g.info:
+	@$(call log,➡ Git sha ...)
+	echo $(GIT_SHA)
