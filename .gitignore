@@ -1,7 +1,10 @@
 **/*.env
 **/*.tfvars
 *tfvars*
-*tfplan
+*tfplan*
 *tfstate*
 .terraform
 **/*.vscode
+
+# non-secret env inputs, needed by the CI plan
+!infra/envs/*/*.tfvars
