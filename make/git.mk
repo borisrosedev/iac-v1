@@ -10,3 +10,5 @@ g.log:
 g.info:
 	@$(call log,➡ Git sha ...)
 	echo $(GIT_SHA)
+gh:
+	@gh api repos/borisrosedev/iac-v1 --jq '{repo_id: .id, owner_id: .owner.id}'
